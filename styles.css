@@ -1,0 +1,487 @@
+/* ==========================================================================
+   Global look & feel – matches Fin.Creditcard
+   ========================================================================== */
+
+:root {
+  --cc-bg: #020617;             /* slate-950 */
+  --cc-bg-elevated: rgba(15, 23, 42, 0.9);
+  --cc-bg-card: rgba(15, 23, 42, 0.85);
+
+  --cc-text-main: #e5e7eb;      /* slate-200 */
+  --cc-text-muted: #94a3b8;     /* slate-400 */
+  --cc-text-soft: #cbd5f5;
+  --cc-text-subtle: #64748b;
+  --cc-text-heading: #f9fafb;
+
+  --cc-accent: #0ea5e9;         /* sky-500 */
+  --cc-accent-soft: #38bdf8;    /* sky-400 */
+
+  --cc-border-soft: rgba(148, 163, 184, 0.4);
+  --cc-shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+
+  --cc-radius-sm: 0.5rem;
+  --cc-radius-md: 0.75rem;
+  --cc-radius-lg: 1.25rem;
+
+  --cc-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  --cc-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  --cc-container-wide: 72rem;
+  --cc-container-narrow: 60rem;
+}
+
+/* Reset / base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--cc-font-sans);
+  background-color: var(--cc-bg);
+  color: var(--cc-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utility-ish classes used in markup */
+
+.bg-slate-950 {
+  background-color: #020617;
+}
+.text-slate-100 {
+  color: #f1f5f9;
+}
+
+.max-w-6xl {
+  max-width: var(--cc-container-wide);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.max-w-5xl {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   Header – sticky, frosted, same vibe as Fin.Creditcard
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(2, 6, 23, 0.94);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Brand left side */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.cc-logo {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 999px;
+  background: rgba(14, 165, 233, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #020617;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.brand-subtitle {
+  font-size: 0.65rem;
+  color: var(--cc-text-subtle);
+}
+
+/* Nav links (right side) */
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.85rem;
+}
+
+.nav-links a {
+  color: #cbd5f5;
+  text-decoration: none;
+  transition: color 140ms ease, opacity 140ms ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Page wrapper – content pages
+   ========================================================================== */
+
+.cc-page {
+  max-width: var(--cc-container-narrow);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+@media (min-width: 768px) {
+  .cc-page {
+    padding: 3rem 2rem 4.5rem;
+  }
+}
+
+/* Breadcrumb line */
+
+.cc-breadcrumb {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.75);
+  padding-bottom: 0.35rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Hero */
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--cc-text-heading);
+  margin: 0 0 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+}
+
+.hero-lead {
+  margin: 0 0 1.5rem;
+  color: var(--cc-text-soft);
+  max-width: 40rem;
+}
+
+/* CTA button */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 1.3rem;
+  border-radius: var(--cc-radius-md);
+  background: var(--cc-accent);
+  color: #020617;              /* tydelig tekst på lys blå bakgrunn */
+  text-decoration: none;       /* ingen underline på knappen */
+  box-shadow: 0 16px 35px rgba(8, 47, 73, 0.75);
+  transition: background-color 160ms ease, transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.cta:hover {
+  background: var(--cc-accent-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 22px 45px rgba(8, 47, 73, 0.9);
+}
+
+/* Sections */
+
+.section {
+  margin-top: 2.5rem;
+}
+
+.section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--cc-text-heading);
+}
+
+/* Text styles */
+
+.small {
+  font-size: 0.9rem;
+  color: var(--cc-text-muted);
+  max-width: 44rem;
+}
+
+.cc-page p {
+  margin: 0 0 0.75rem;
+}
+
+/* Vanlige lenker inne på siden (ikke CTA-knappen) */
+.cc-page a:not(.cta) {
+  color: var(--cc-accent-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cc-page a:not(.cta):hover {
+  color: #e0f2fe;
+}
+
+/* Lists */
+
+.list {
+  margin: 0.25rem 0 1.1rem;
+  padding-left: 1.35rem;
+}
+
+.list li {
+  margin-bottom: 0.35rem;
+  color: var(--cc-text-soft);
+}
+
+/* Tables (SCA factors) */
+
+.table-wrap {
+  margin-top: 1.25rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: var(--cc-bg-elevated);
+  border-radius: var(--cc-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--cc-shadow-soft);
+}
+
+.table th,
+.table td {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--cc-border-soft);
+  text-align: left;
+}
+
+.table th {
+  background: #020617;
+  color: var(--cc-text-soft);
+  font-weight: 600;
+}
+
+.table tbody tr:nth-child(even) {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.table tbody tr:nth-child(odd) {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+/* Identity cluster cards */
+
+.cluster-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cluster-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.cluster-card {
+  display: block;
+  background: var(--cc-bg-card);
+  border-radius: var(--cc-radius-md);
+  border: 1px solid var(--cc-border-soft);
+  padding: 1rem;
+  text-decoration: none;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.7);
+  transition: border-color 140ms ease, transform 140ms ease,
+    box-shadow 140ms ease, background-color 140ms ease;
+}
+
+.cluster-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  color: var(--cc-text-heading);
+}
+
+.cluster-card p {
+  margin: 0;
+}
+
+.cluster-card:hover {
+  border-color: var(--cc-accent-soft);
+  background: rgba(15, 23, 42, 0.98);
+  transform: translateY(-1px);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.9);
+}
+
+/* ==========================================================================
+   Full footer (for større sider som fin.creditcard – kan gjenbrukes)
+   ========================================================================== */
+
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: radial-gradient(circle at top, #0d1330 0, #060818 50%, #020617 100%);
+  border-top: 1px solid rgba(148, 163, 184, 0.45);
+  color: var(--cc-text-main);
+}
+
+.footer-inner {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .footer-inner {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.footer-cols {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-cols {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.footer-col {
+  flex: 1;
+}
+
+.site-footer h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+  color: #e5e7eb;
+}
+
+.site-footer p {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  color: var(--cc-text-soft);
+}
+
+.footer-note {
+  font-size: 0.8rem;
+  color: var(--cc-text-subtle);
+  margin-top: 0.35rem;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+  color: #cbd5f5;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(148, 163, 184, 0.4);
+  margin-top: 2.25rem;
+  padding-top: 0.9rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--cc-text-subtle);
+}
+
+/* ==========================================================================
+   Mini Footer – for small cluster/utility pages
+   ========================================================================== */
+
+.mini-footer {
+  margin-top: 3rem;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  border-top: 1px solid rgba(148, 163, 184, 0.35);
+  background: radial-gradient(circle at top, #0d1330 0, #060818 50%, #020617 100%);
+}
+
+.mini-footer-main {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--cc-text-soft);
+}
+
+.mini-footer-contact {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--cc-text-soft);
+}
+
+.mini-footer-contact a {
+  color: #7dd3fc;              /* lys, tydelig e-postfarge */
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mini-footer-contact a:hover {
+  text-decoration: underline;
+  color: #c8f1ff;               /* enda lysere på hover */
+}
